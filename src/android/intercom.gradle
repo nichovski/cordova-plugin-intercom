@@ -35,7 +35,7 @@ dependencies {
     }
 }
 
-def googleServicesJsonPath = '../../../google-services.json'
+def googleServicesJsonPath = '../../../../google-services.json'
 
 task copyGoogleServices(type: Copy) {
     from googleServicesJsonPath
