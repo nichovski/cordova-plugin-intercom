@@ -43,7 +43,7 @@ task copyGoogleServices(type: Copy) {
 }
 
 if (pushType == 'fcm') {
-    tasks.copyGoogleServices.execute()
+    tasks.copyGoogleServices.finalizedBy()
     apply plugin: com.google.gms.googleservices.GoogleServicesPlugin
 } else if (pushType == 'fcm-without-build-plugin') {
     tasks.copyGoogleServices.execute()

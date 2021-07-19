@@ -60,7 +60,7 @@ public class IntercomBridge extends CordovaPlugin {
         try {
             Context context = cordova.getActivity().getApplicationContext();
 
-            CordovaHeaderInterceptor.setCordovaVersion(context, "7.1.14");
+            CordovaHeaderInterceptor.setCordovaVersion(context, "7.1.15");
 
             switch (IntercomPushManager.getInstalledModuleType()) {
                 case FCM: {
