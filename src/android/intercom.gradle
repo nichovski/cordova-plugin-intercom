@@ -16,7 +16,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.+'
         if (pushType == 'fcm') {
-           // classpath 'com.google.gms:google-services:3.2.0'
+            classpath 'com.google.gms:google-services:4.3.8'
         }
     }
 }
@@ -35,7 +35,7 @@ dependencies {
     }
 }
 
-def googleServicesJsonPath = '../../../../google-services.json'
+def googleServicesJsonPath = '../../../google-services.json'
 
 task copyGoogleServices(type: Copy) {
     from googleServicesJsonPath
@@ -43,9 +43,9 @@ task copyGoogleServices(type: Copy) {
 }
 
 if (pushType == 'fcm') {
-    tasks.copyGoogleServices.finalizedBy()
+    tasks.copyGoogleServices.execute()
     apply plugin: com.google.gms.googleservices.GoogleServicesPlugin
 } else if (pushType == 'fcm-without-build-plugin') {
-    tasks.copyGoogleServices.finalizedBy()
-    logger.info("Not applying GoogleServicesPlugin from Intercom plugin, another plugin should do this")
+    tasks.copyGoogleServices.execute()
+    logger.info('Not applying GoogleServicesPlugin from Intercom plugin, another plugin should do this')
 }
